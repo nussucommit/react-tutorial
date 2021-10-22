@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "TodoList.module.scss"
+    ],
+    "names": [],
+    "file": "TodoList.module.css"
+}

@@ -1,0 +1,23 @@
+.todo {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  margin: 16px auto;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
+  border-radius: 8px;
+}
+
+.name {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.done {
+  margin-right: 16px;
+  color: green;
+  cursor: pointer;
+  text-decoration: line-through;
+}
