@@ -1,25 +1,39 @@
-import { useState } from "react";
+import { Field, Form, Formik } from "formik";
+import * as yup from "yup";
+
+const initialValues = {
+  name: "",
+  user: "",
+};
+
+const validationSchema = yup.object({
+  name: yup.string().required("Required"),
+  user: yup.string().required("Required"),
+});
 
 const SubmitForm = ({ onFormSubmit }) => {
-  const [name, setName] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (values, formikHelpers) => {
+    const { name } = values;
     if (name === "") return;
     onFormSubmit(name);
-    setName("");
+    formikHelpers.resetForm();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter Task"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button>Submit</button>
-    </form>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <Field type="text" placeholder="Enter Task" name="name" />
+
+          <Field type="text" placeholder="Enter Name" name="user" />
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 
